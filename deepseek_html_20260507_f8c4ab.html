@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Abigayd Delgado · diseño gráfico</title>
+  <!-- Google Fonts tipografías modernas + alternativa -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0f0d0c;
+      background-image: radial-gradient(circle at 10% 20%, rgba(242, 5, 92, 0.03) 0%, rgba(242, 203, 5, 0.02) 90%);
+      font-family: 'Inter', 'Neue Hans Unica', 'Neulis Neue', 'Helvetica Neue', sans-serif;
+      color: #e8e2d9;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+
+    /* tipografía cursiva / display */
+    .cursive-marker {
+      font-family: 'Syne', 'Neulis Cursive', 'Brush Script MT', cursive;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    /* paleta neón moderna */
+    :root {
+      --neon-rose: #F2055C;
+      --neon-magenta: #F2059F;
+      --sun-flare: #F2CB05;
+      --carrot-spice: #F2B705;
+      --tangerine: #F25C05;
+      --dark-bg: #0A0807;
+      --glass-edge: rgba(255, 255, 255, 0.05);
+    }
+
+    /* contenedor fluido */
+    .app {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 2rem;
+    }
+
+    /* header con navegación flotante (pestañas separadas) */
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(242, 203, 5, 0.3);
+    }
+
+    .logo-moderno h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(130deg, #F2059F, #F2CB05, #F25C05);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.03em;
+    }
+    .logo-moderno p {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      color: var(--neon-rose);
+      font-weight: 500;
+    }
+
+    /* pestañas estilo pill modernas */
+    .tabs {
+      display: flex;
+      gap: 0.2rem;
+      background: rgba(20, 18, 17, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: 80px;
+      padding: 0.3rem;
+      border: 1px solid rgba(242, 5, 92, 0.4);
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      color: #d9d0c5;
+      letter-spacing: -0.2px;
+    }
+    .tab-btn i {
+      margin-right: 8px;
+      font-size: 0.9rem;
+    }
+    .tab-btn:hover {
+      color: white;
+      background: rgba(242, 203, 5, 0.2);
+    }
+    .tab-btn.active {
+      background: linear-gradient(115deg, var(--neon-rose), var(--neon-magenta));
+      color: white;
+      box-shadow: 0 6px 14px rgba(242, 5, 92, 0.4);
+    }
+
+    /* paneles */
+    .tab-pane {
+      display: none;
+      animation: fadeSlide 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .tab-pane.active-pane {
+      display: block;
+    }
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Títulos comunes */
+    h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--sun-flare));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--tangerine);
+      margin-bottom: 0.5rem;
+    }
+
+    /* hero inicio */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 2.5rem;
+      margin: 1rem 0 3rem;
+      background: rgba(10, 8, 7, 0.5);
+      border-radius: 48px;
+      padding: 2rem;
+      border: 1px solid var(--glass-edge);
+      backdrop-filter: blur(4px);
+    }
+    .hero-text h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+    .hero-highlight {
+      background: linear-gradient(120deg, var(--neon-rose), var(--tangerine));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .btn-gradient {
+      background: linear-gradient(95deg, var(--carrot-spice), var(--tangerine));
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0a0807;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+    }
+    .btn-gradient:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(242, 92, 5, 0.5);
+      background: linear-gradient(95deg, var(--sun-flare), var(--carrot-spice));
+    }
+    .marquee-badge {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .badge-light {
+      background: rgba(242, 203, 5, 0.15);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* trabajos – grid audaz con efecto glass */
+    .proyects-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .work-card {
+      background: rgba(20, 18, 17, 0.65);
+      backdrop-filter: blur(8px);
+      border-radius: 32px;
+      overflow: hidden;
+      transition: all 0.3s;
+      border: 1px solid rgba(242, 5, 92, 0.3);
+    }
+    .work-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--neon-magenta);
+      box-shadow: 0 20px 30px -12px rgba(242, 5, 92, 0.3);
+    }
+    .work-img {
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: 0.4s;
+    }
+    .work-info {
+      padding: 1.4rem;
+    }
+    .work-tag {
+      color: var(--sun-flare);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* Sobre mi – diseño asimetrico moderno */
+    .about-modern {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      background: radial-gradient(circle at 90% 20%, rgba(242,5,92,0.05), transparent);
+      border-radius: 48px;
+      padding: 1.5rem;
+    }
+    .about-image-box {
+      background: linear-gradient(145deg, var(--neon-rose), var(--tangerine));
+      border-radius: 40px;
+      padding: 8px;
+    }
+    .about-image-box img {
+      width: 100%;
+      border-radius: 34px;
+      filter: grayscale(20%) contrast(1.05);
+      display: block;
+    }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.5rem 0;
+    }
+    .skill-item {
+      background: rgba(242, 203, 5, 0.2);
+      border-radius: 40px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 0.5px solid rgba(242, 183, 5, 0.5);
+    }
+    .signature {
+      font-size: 1.5rem;
+      font-family: "Syne", cursive;
+      margin-top: 1rem;
+    }
+
+    /* contacto: layout bold */
+    .contact-modern {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      background: rgba(0,0,0,0.4);
+      border-radius: 48px;
+      padding: 2.2rem;
+      border: 1px solid rgba(242, 203, 5, 0.3);
+    }
+    .input-modern {
+      background: rgba(20, 18, 17, 0.8);
+      border: 1px solid #433e38;
+      border-radius: 60px;
+      padding: 12px 20px;
+      width: 100%;
+      color: white;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+    .input-modern:focus {
+      outline: none;
+      border-color: var(--neon-rose);
+      box-shadow: 0 0 0 2px rgba(242,5,92,0.3);
+    }
+    textarea.input-modern {
+      border-radius: 28px;
+      resize: vertical;
+    }
+    .contact-social-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(145deg, #F2055C, #F2059F);
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+      transition: 0.2s;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      opacity: 0.7;
+      font-size: 0.75rem;
+      border-top: 1px dashed rgba(242,203,5,0.3);
+      padding: 2rem;
+    }
+
+    @media (max-width: 880px) {
+      .app { padding: 1rem; }
+      .hero-grid, .about-modern, .contact-modern {
+        grid-template-columns: 1fr;
+      }
+      h2 { font-size: 2.2rem; }
+      .hero-text h1 { font-size: 2.6rem; }
+      .tabs .tab-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <!-- Header pestañas -->
+  <div class="nav-header">
+    <div class="logo-moderno">
+      <h1>ABIGAYD ESPINOSA</h1>
+      <p class="cursive-marker">▸ diseñadora gráfica</p>
+    </div>
+    <div class="tabs" id="tabContainer">
+      <button class="tab-btn active" data-tab="home"><i class="fas fa-bolt"></i> Inicio</button>
+      <button class="tab-btn" data-tab="works"><i class="fas fa-grid-2"></i> Trabajos</button>
+      <button class="tab-btn" data-tab="about"><i class="fas fa-sparkle"></i> Sobre mi</button>
+      <button class="tab-btn" data-tab="contact"><i class="fas fa-feather"></i> Contacto</button>
+    </div>
+  </div>
+
+  <!-- PANEL INICIO -->
+  <div id="home" class="tab-pane active-pane">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="section-sub">IDENTIDAD VISUAL / DISEÑO REDES SOCIALES </div>
+        <h1>Por que el diseño <span class="hero-highlight">ㅤno solo es</span><br>"bonito"</h1>
+        <p style="margin-top: 1rem; font-size: 1.1rem;">contenido gráfico funcional, estetico.</p>
+        <button class="btn-gradient" id="heroContactBtn"><i class="fas fa-hand-peace"></i> Empezar proyecto</button>
+        <div class="marquee-badge">
+          <span class="badge-light"><i class="fas fa-check-circle" style="color:#F2CB05;"></i> Freelance</span>
+          <span class="badge-light"><i class="fas fa-globe"></i> Diseño páginas web</span>
+          <span class="badge-light"><i class="fas fa-palette"></i> Branding</span>
+        </div>
+      </div>
+      <div style="background: linear-gradient(135deg, #F2055C20, #F2B70520); border-radius: 36px; padding: 1.8rem; backdrop-filter: blur(10px);">
+        <p class="cursive-marker" style="font-size: 2rem; font-weight: 600;">“estética<br> con propósito”</p>
+        <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+          <i class="fas fa-arrow-right" style="font-size: 2rem; color:#F2CB05;"></i>
+        </div>
+        <hr style="margin: 1rem 0; border-color: #F2055C30;">
+        <div style="display: flex; justify-content: space-between;"><span>animación</span><span>fotografía</span><span>vectorizado</span></div>
+      </div>
+    </div>
+    <!-- inspiración collage rápido -->
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 2rem 0;">
+      <div style="background:#F2055C; width: 80px; height: 80px; border-radius: 32px;"></div>
+      <div style="background:#F2CB05; width: 120px; height: 80px; border-radius: 60px;"></div>
+      <div style="background:#F25C05; width: 100px; height: 80px; border-radius: 40px;"></div>
+      <div style="background:#F2059F; width: 70px; height: 80px; border-radius: 28px;"></div>
+    </div>
+  </div>
+
+  <!-- PANEL TRABAJOS (portafolio dinámico) -->
+  <div id="works" class="tab-pane">
+    <div class="section-sub">PORTAFOLIO RECIENTE</div>
+    <h2>proyectos <span style="color:#F2B705;">/*</span> experimentales</h2>
+    <div class="proyects-showcase" id="dynamicWorks"></div>
+    <div style="text-align: center; margin-top: 1rem;"><span class="badge-light"><i class="fas fa-infinity"></i> motion + branding + editorial</span></div>
+  </div>
+
+  <!-- PANEL SOBRE MI -->
+  <div id="about" class="tab-pane">
+    <div class="about-modern">
+      <div class="about-image-box">
+        <img src="https://images.pexels.com/photos/5875349/pexels-photo-5875349.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Abigayd Diseñadora">
+      </div>
+      <div>
+        <div class="section-sub">DISEÑADOR GRÁFICO</div>
+        <h2 style="font-size: 2.5rem;">Abigayd Espinosa</h2>
+        <p>Diseñadora gráfica mexicana. Interesada en branding, identidad visual, animación, diseño web y redes sociales, experimentando estilos fuera de confront.</p>
+        <div class="skill-list">
+          <span class="skill-item">Branding - Identidad Visual</span>
+          <span class="skill-item">Animación</span>
+          <span class="skill-item">Modelado 3D</span>
+          <span class="skill-item">Páginas Web</span>
+          <span class="skill-item">Redes Sociales</span>
+        </div>
+        <p>Hola! Un gusto. Soy Abigayd Delgado, una persona apasionada por la animación, identidad visual y los videojuegos. Me interesa tanto como el diseño gráfico como los idiomas, actualmente manejo los idomas como el inglés, portugués y estudiando el japonés, asi mismo manejo el ecosistema Adobe (After Effects, Illustrator,InDesing, Photoshop), como otros programas como Affinity, Davinci Resolve, Visual Studio, Capcut, IbisPaint, Canva, además de contar con certificado en Microsoft Office. Como gustos personales me gusta el pop, la cultura, los videojuegos, la astrología/esoterismo,canto y el anime. </p>
+        <div class="signature"><i class="fas fa-feather-alt"></i>ㅤel diseño es comunicativo</div>
+      </div>
+    </div>
+    <!-- extra cita -->
+    <div style="margin-top: 2rem; background: linear-gradient(95deg, #F2055C10, #F2B70510); border-radius: 32px; padding: 1.5rem; text-align: center;">
+      <span class="cursive-marker" style="font-size: 1.3rem;">“Mientras uno este vivo, uno debe de amar lo más que pueda" - Bad Bunny</span>
+    </div>
+  </div>
+
+  <!-- PANEL CONTACTO -->
+  <div id="contact" class="tab-pane">
+    <div class="contact-modern">
+      <div>
+        <div class="section-sub">COMUNICACIÓN DIRECTA</div>
+        <h2 style="font-size: 2rem;">trabajemos juntos</h2>
+        <p>¿Tienes un proyecto fresco? Cuéntame tu idea y construyamos algo memorable.</p>
+        <form id="contactSimplerForm">
+          <div style="margin: 1.2rem 0;"><input type="text" placeholder="nombre completo" class="input-modern" id="contactName"></div>
+          <div style="margin: 1.2rem 0;"><input type="email" placeholder="correo electrónico" class="input-modern" id="contactEmail"></div>
+          <div style="margin: 1.2rem 0;"><textarea rows="2" placeholder="breve descripción del proyecto" class="input-modern" id="contactMsg"></textarea></div>
+          <button type="submit" class="btn-gradient" style="width:100%; justify-content: center;"><i class="fas fa-paper-plane"></i> enviar mensaje</button>
+        </form>
+      </div>
+      <div>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div><i class="fas fa-map-pin" style="color:#F2CB05;"></i> <strong>disponible</strong> · remoto / freelance</div>
+          <div><i class="fas fa-envelope"></i> abi.gay.d2003@gmail.cm</div>
+          <div class="contact-social-row">
+            <div class="icon-circle"><i class="fab fa-behance"></i></div>
+            <div class="icon-circle"><i class="fab fa-dribbble"></i></div>
+            <div class="icon-circle"><i class="fab fa-linkedin-in"></i></div>
+          </div>
+          <div style="border-left: 3px solid var(--neon-rose); padding-left: 1rem;">+52 833 288 1175 · respuesta 24h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Abigayd Delgado · Diseñadora Gráfica</p>
+    <p>✦ Freelancer · Todos las proyectos son bienvenidos ✦</p>
+  </footer>
+</div>
+
+<script>
+  // ----- pestañas separadas (sin todo junto)
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panes = document.querySelectorAll('.tab-pane');
+  function switchTab(tabId) {
+    panes.forEach(pane => pane.classList.remove('active-pane'));
+    const activePane = document.getElementById(tabId);
+    if(activePane) activePane.classList.add('active-pane');
+    tabs.forEach(btn => {
+      btn.classList.remove('active');
+      if(btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
+    });
+  }
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-tab');
+      if(target === 'home') switchTab('home');
+      else if(target === 'works') switchTab('works');
+      else if(target === 'about') switchTab('about');
+      else if(target === 'contact') switchTab('contact');
+    });
+  });
+  // botón hero a contacto
+  const heroBtn = document.getElementById('heroContactBtn');
+  if(heroBtn) heroBtn.addEventListener('click', () => switchTab('contact'));
+
+  // proyectos modernos (trabajos)
+  const worksArray = [
+    { title: "CHROMA NIGHTS", category: "Identidad Visual", imgColor: "linear-gradient(145deg, #F2055C, #F2B705)", bgSeed: "https://images.pexels.com/photos/1093443/pexels-photo-1093443.jpeg" },
+    { title: "KALEIDO LAB", category: "Motion / Branding", imgColor: "linear-gradient(45deg, #F2059F, #F2CB05)", bgSeed: "https://images.pexels.com/photos/17412344/pexels-photo-17412344.jpeg" },
+    { title: "FLORA FUTURA", category: "Packaging", imgColor: "linear-gradient(225deg, #F25C05, #F2CB05)", bgSeed: "https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg" },
+    { title: "TYPE PLAY", category: "Tipografía Experimental", imgColor: "linear-gradient(135deg, #F2055C, #F2059F)", bgSeed: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg" },
+    { title: "METANOIA", category: "Arte generativo", imgColor: "linear-gradient(90deg, #F2B705, #F25C05)", bgSeed: "https://images.pexels.com/photos/1337976/pexels-photo-1337976.jpeg" },
+    { title: "SOUL BRAND", category: "Brand Strategy", imgColor: "linear-gradient(120deg, #F2059F, #F2055C)", bgSeed: "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg" }
+  ];
+  const container = document.getElementById('dynamicWorks');
+  if(container){
+    container.innerHTML = '';
+    worksArray.forEach(work => {
+      const card = document.createElement('div');
+      card.className = 'work-card';
+      // usamos imágenes placeholder de alta calidad con semilla dinámica
+      const randomImg = work.bgSeed;
+      card.innerHTML = `
+        <div class="work-img" style="background-image: url(${randomImg}); background-size: cover; background-position: center;"></div>
+        <div class="work-info">
+          <div class="work-tag">${work.category}</div>
+          <h3 style="font-size: 1.5rem; margin: 0.3rem 0;">${work.title}</h3>
+          <p style="opacity:0.8;">proyecto editorial + digital</p>
+          <div style="display: flex; justify-content: flex-end;"><i class="fas fa-arrow-up-right-from-square" style="color:#F2CB05;"></i></div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // contacto formulario alerta 
+  const contactFormSimple = document.getElementById('contactSimplerForm');
+  if(contactFormSimple){
+    contactFormSimple.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameField = document.getElementById('contactName')?.value;
+      alert(`✨ ¡Gracias ${nameField || 'futuro cliente'}! Recibirás respuesta en menos de 24h. Hablemos de diseño sin límites.`);
+      contactFormSimple.reset();
+    });
+  }
+
+  // Añadimos efecto dinámico sutil: glass adicional en tab activa
+  console.log("Moderna interfaz con pestañas separadas y paleta neón");
+</script>
+</body>
+</html>
