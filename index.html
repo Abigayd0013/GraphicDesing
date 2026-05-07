@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <style>
-    /* [TODOS TUS ESTILOS EXISTENTES - NO LOS CAMBIES] */
+    /* [ESTILOS EXISTENTES] */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background-color: #0f0d0c; background-image: radial-gradient(circle at 10% 20%, rgba(242, 5, 92, 0.03) 0%, rgba(242, 203, 5, 0.02) 90%); font-family: 'Inter', 'Neue Hans Unica', 'Neulis Neue', 'Helvetica Neue', sans-serif; color: #e8e2d9; line-height: 1.4; scroll-behavior: smooth; }
     .cursive-marker { font-family: 'Syne', 'Neulis Cursive', 'Brush Script MT', cursive; font-weight: 600; letter-spacing: -0.02em; }
@@ -43,6 +43,7 @@
     .about-modern { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; background: radial-gradient(circle at 90% 20%, rgba(242,5,92,0.05), transparent); border-radius: 48px; padding: 1.5rem; }
     .about-image-box { background: linear-gradient(145deg, var(--neon-rose), var(--tangerine)); border-radius: 40px; padding: 8px; }
     .about-image-box img { width: 100%; border-radius: 34px; filter: grayscale(20%) contrast(1.05); display: block; }
+    /* Recomendación para la imagen "yooooyooo.jpg": ancho mínimo 600px, alto mínimo 600px, proporción 1:1 o 4:3 */
     .skill-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0; }
     .skill-item { background: rgba(242, 203, 5, 0.2); border-radius: 40px; padding: 0.4rem 1.1rem; font-size: 0.8rem; font-weight: 500; border: 0.5px solid rgba(242, 183, 5, 0.5); }
     .signature { font-size: 1.5rem; font-family: "Syne", cursive; margin-top: 1rem; }
@@ -112,7 +113,10 @@
   <!-- SOBRE MI -->
   <div id="about" class="tab-pane">
     <div class="about-modern">
-      <div class="about-image-box"><img src="https://images.pexels.com/photos/5875349/pexels-photo-5875349.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Abigayd Diseñadora"></div>
+      <div class="about-image-box">
+        <!-- Imagen local: yooooyooo.jpg (recomendación: min 600x600 px, ratio 1:1 o 4:3) -->
+        <img src="yooooyooo.jpg" alt="Abigayd Espinosa - diseñadora gráfica">
+      </div>
       <div>
         <div class="section-sub">DISEÑADOR GRÁFICO</div>
         <h2 style="font-size: 2.5rem;">Abigayd Espinosa</h2>
@@ -190,15 +194,16 @@
   });
   document.getElementById('heroContactBtn').addEventListener('click', () => switchTab('contact'));
 
-  // TRABAJOS (enlaces funcionales)
+  // TRABAJOS con tus datos y texto "mira más de cerca"
   const worksArray = [
-    { title: "CHROMA NIGHTS", category: "Identidad Visual", link: "#", bgSeed: "https://images.pexels.com/photos/1093443/pexels-photo-1093443.jpeg" },
-    { title: "KALEIDO LAB", category: "Motion / Branding", link: "#", bgSeed: "https://images.pexels.com/photos/17412344/pexels-photo-17412344.jpeg" },
-    { title: "FLORA FUTURA", category: "Packaging", link: "#", bgSeed: "https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg" },
-    { title: "TYPE PLAY", category: "Tipografía Experimental", link: "#", bgSeed: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg" },
-    { title: "METANOIA", category: "Arte generativo", link: "#", bgSeed: "https://images.pexels.com/photos/1337976/pexels-photo-1337976.jpeg" },
-    { title: "SOUL BRAND", category: "Brand Strategy", link: "#", bgSeed: "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg" }
+    { title: "CAUDILLOS COFFEE", category: "Rebranding & manual de identidad", link: "https://acrobat.adobe.com/id/urn:aaid:sc:us:068bc216-f8ee-4b7b-9143-265f6d749a18", image: "CAUDILLOS.jpg" },
+    { title: "i23", category: "Vectorizado", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:19b372f6-a194-49da-a8ad-9df614cd7a17", image: "i23.jpg" },
+    { title: "Tamline", category: "Branding MetroBus", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:ec3429ac-9cc9-4afe-acbf-05f77b913aed", image: "Tamline.jpg" },
+    { title: "MyCrafts", category: "Website", link: "https://abigayd0013.github.io/MyCrafts/", image: "vspgmycrafts.jpg" },
+    { title: "Afrodyta", category: "Website", link: "https://afrodytatarot.github.io/", image: "vspgafro.jpg" },
+    { title: "Landing Page MyCrafts", category: "Website - Landing Page", link: "https://abigayd0013.github.io/MyCrafts_LP/", image: "vslpmycrafts.jpg" }
   ];
+
   const container = document.getElementById('dynamicWorks');
   if(container) {
     container.innerHTML = '';
@@ -206,11 +211,11 @@
       const card = document.createElement('div');
       card.className = 'work-card';
       card.innerHTML = `
-        <div class="work-img" style="background-image: url(${work.bgSeed}); background-size: cover; background-position: center;"></div>
+        <div class="work-img" style="background-image: url('${work.image}'); background-size: cover; background-position: center;"></div>
         <div class="work-info">
           <div class="work-tag">${work.category}</div>
           <h3 style="font-size: 1.5rem; margin: 0.3rem 0;">${work.title}</h3>
-          <p style="opacity:0.8;">proyecto editorial + digital</p>
+          <p style="opacity:0.8;">mira más de cerca</p>
           <div style="display: flex; justify-content: flex-end;">
             <a href="${work.link}" target="_blank" style="color: #F2CB05; text-decoration: none; font-size: 1.2rem;">
               <i class="fas fa-arrow-up-right-from-square"></i>
@@ -222,7 +227,7 @@
     });
   }
 
-  // FORMULARIO DE CONTACTO con variables separadas
+  // FORMULARIO DE CONTACTO (EmailJS)
   const form = document.getElementById('contactSimplerForm');
   const sendBtn = document.getElementById('sendContactBtn');
 
