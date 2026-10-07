@@ -34,7 +34,6 @@
     .btn-gradient:hover { transform: scale(1.02); box-shadow: 0 8px 20px rgba(242, 92, 5, 0.5); background: linear-gradient(95deg, var(--sun-flare), var(--carrot-spice)); }
     .marquee-badge { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
     .badge-light { background: rgba(242, 203, 5, 0.15); backdrop-filter: blur(4px); padding: 0.3rem 1rem; border-radius: 60px; font-size: 0.8rem; font-weight: 500; }
-    .proyects-showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.8rem; margin: 2rem 0; }
     .work-card { background: rgba(20, 18, 17, 0.65); backdrop-filter: blur(8px); border-radius: 32px; overflow: hidden; transition: all 0.3s; border: 1px solid rgba(242, 5, 92, 0.3); }
     .work-card:hover { transform: translateY(-8px); border-color: var(--neon-magenta); box-shadow: 0 20px 30px -12px rgba(242, 5, 92, 0.3); }
     .work-img { height: 260px; background-size: cover; background-position: center; }
@@ -55,59 +54,15 @@
     .icon-circle:hover { transform: scale(1.08); opacity: 0.9; }
     footer { margin-top: 4rem; text-align: center; opacity: 0.7; font-size: 0.75rem; border-top: 1px dashed rgba(242,203,5,0.3); padding: 2rem; }
 
-    /* ====== FLECHA CTA → TRABAJOS ====== */
-    .arrow-cta {
-      position: relative;
-      background: transparent;
-      border: 2px solid #F2CB05;
-      color: #F2CB05;
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      font-size: 1.6rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      animation: arrowPulse 2s infinite;
-      font-family: inherit;
-      overflow: hidden;
-      z-index: 1;
-      padding: 0;
-    }
-    .arrow-cta::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, #F2CB05, #F25C05);
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-    .arrow-cta i {
-      transition: transform 0.3s ease;
-      position: relative;
-      z-index: 2;
-    }
-    .arrow-cta:hover {
-      color: #0a0807;
-      border-color: transparent;
-      transform: scale(1.12);
-      box-shadow: 0 0 25px rgba(242, 203, 5, 0.6), 0 0 50px rgba(242, 92, 5, 0.3);
-      animation: none;
-    }
+    .arrow-cta { position: relative; background: transparent; border: 2px solid #F2CB05; color: #F2CB05; width: 64px; height: 64px; border-radius: 50%; font-size: 1.6rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; animation: arrowPulse 2s infinite; font-family: inherit; overflow: hidden; z-index: 1; padding: 0; }
+    .arrow-cta::before { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, #F2CB05, #F25C05); border-radius: 50%; opacity: 0; transition: opacity 0.3s ease; z-index: -1; }
+    .arrow-cta i { transition: transform 0.3s ease; position: relative; z-index: 2; }
+    .arrow-cta:hover { color: #0a0807; border-color: transparent; transform: scale(1.12); box-shadow: 0 0 25px rgba(242, 203, 5, 0.6), 0 0 50px rgba(242, 92, 5, 0.3); animation: none; }
     .arrow-cta:hover::before { opacity: 1; }
     .arrow-cta:hover i { transform: translateX(6px); }
     .arrow-cta:active { transform: scale(0.95); }
+    @keyframes arrowPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(242, 203, 5, 0.5); } 50% { box-shadow: 0 0 0 12px rgba(242, 203, 5, 0); } }
 
-    @keyframes arrowPulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(242, 203, 5, 0.5); }
-      50%      { box-shadow: 0 0 0 12px rgba(242, 203, 5, 0); }
-    }
-
-    /* ====== CATEGORÍAS DE TRABAJOS ====== */
     .work-category { margin-bottom: 3.5rem; }
     .category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 2px solid rgba(242, 5, 92, 0.35); }
     .category-header h3 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(120deg, #F2CB05, #F25C05); background-clip: text; -webkit-background-clip: text; color: transparent; }
@@ -118,6 +73,8 @@
     .work-card-plus .plus-icon { font-size: 4rem; font-weight: 200; background: linear-gradient(120deg, #F2CB05, #F25C05); background-clip: text; -webkit-background-clip: text; color: transparent; line-height: 1; }
     .work-card-plus .plus-text { margin-top: 1rem; font-weight: 700; font-size: 1rem; letter-spacing: 1px; }
     .work-card-plus .plus-sub { margin-top: 0.4rem; font-size: 0.8rem; opacity: 0.8; }
+
+    .work-card.heyzine-card .work-img { background-size: contain; background-repeat: no-repeat; background-color: #1a1614; }
 
     @media (max-width: 880px) { .app { padding: 1rem; } .hero-grid, .about-modern, .contact-modern { grid-template-columns: 1fr; } h2 { font-size: 2.2rem; } .hero-text h1 { font-size: 2.6rem; } .tabs .tab-btn { padding: 0.5rem 1rem; font-size: 0.8rem; } }
   </style>
@@ -174,10 +131,7 @@
   <div id="works" class="tab-pane">
     <div class="section-sub">PORTAFOLIO RECIENTE</div>
     <h2>proyectos <span style="color:#F2B705;">/*</span> experimentales</h2>
-
-    <!-- CONTENEDOR DINÁMICO POR CATEGORÍAS -->
     <div id="worksCategories"></div>
-
     <div style="text-align: center; margin-top: 1rem;"><span class="badge-light"><i class="fas fa-infinity"></i> motion + branding + editorial</span></div>
   </div>
 
@@ -188,7 +142,7 @@
         <img src="yooooyooo.jpg" alt="Abigayd Espinosa - diseñadora gráfica">
       </div>
       <div>
-        <div class="section-sub">DISEÑADOR GRÁFICO</div>
+        <div class="section-sub">DISEÑADORA GRÁFICA</div>
         <h2 style="font-size: 2.5rem;">Abigayd Espinosa</h2>
         <p>Diseñadora gráfica mexicana. Interesada en branding, identidad visual, animación, diseño web y redes sociales, experimentando estilos fuera de lo convencional.</p>
         <div class="skill-list">
@@ -198,7 +152,7 @@
           <span class="skill-item">Páginas Web</span>
           <span class="skill-item">Redes Sociales</span>
         </div>
-        <p>Hola! Un gusto. Soy Abigayd Delgado, apasionada por la animación, identidad visual y los videojuegos. Manejo Adobe (After Effects, Illustrator, InDesign, Photoshop), Affinity, Davinci Resolve, Visual Studio, Capcut, IbisPaint, Canva, y tengo certificado en Microsoft Office. Me gusta el pop, la cultura, los videojuegos, la astrología/esoterismo, canto y el anime.</p>
+        <p>Hola! Un gusto. Soy Abigayd Espinosa, apasionada por la animación, identidad visual y los videojuegos. Manejo Adobe (After Effects, Illustrator, InDesign, Photoshop), Affinity, Davinci Resolve, Visual Studio, Capcut, IbisPaint, Canva, y tengo certificado en Microsoft Office. Me gusta el pop, la cultura, los videojuegos, la astrología/esoterismo, canto y el anime.</p>
         <div class="signature"><i class="fas fa-feather-alt"></i>ㅤel diseño es comunicativo</div>
       </div>
     </div>
@@ -237,18 +191,14 @@
   </div>
 
   <footer>
-    <p>© 2026 Abigayd Delgado · Diseñadora Gráfica</p>
+    <p>© 2026 Abigayd Espinosa · Diseñadora Gráfica</p>
     <p>✦ Freelancer · Todos los proyectos son bienvenidos ✦</p>
   </footer>
 </div>
 
 <script>
-  // INICIALIZAR EMAILJS
-  (function() {
-    emailjs.init("enG2Qp086pDfYDjjP");
-  })();
+  (function() { emailjs.init("enG2Qp086pDfYDjjP"); })();
 
-  // PESTAÑAS
   const tabs = document.querySelectorAll('.tab-btn');
   const panes = document.querySelectorAll('.tab-pane');
   function switchTab(tabId) {
@@ -259,27 +209,19 @@
       if(btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
     });
   }
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab')));
-  });
+  tabs.forEach(btn => btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab'))));
   document.getElementById('heroContactBtn').addEventListener('click', () => switchTab('contact'));
-
-  // FLECHA AMARILLA → IR A TRABAJOS
   const arrowBtn = document.getElementById('arrowToWorks');
-  if (arrowBtn) {
-    arrowBtn.addEventListener('click', () => switchTab('works'));
-  }
+  if (arrowBtn) arrowBtn.addEventListener('click', () => switchTab('works'));
 
-  // ==========================================
-  // TRABAJOS POR CATEGORÍA
-  // ==========================================
   const worksData = {
     branding: {
       nombre: "Branding / Identidad visual",
       page: "branding.html",
       items: [
         { title: "CAUDILLOS COFFEE", category: "Rebranding & manual de identidad", link: "https://acrobat.adobe.com/id/urn:aaid:sc:us:068bc216-f8ee-4b7b-9143-265f6d749a18", image: "CAUDILLOS.jpg" },
-        { title: "Tamline", category: "Branding MetroBus", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:e8a42ea9-0dd2-4789-9929-78fc6b30b035", image: "Timeline.jpg" }
+        { title: "Tamline", category: "Branding MetroBus", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:e8a42ea9-0dd2-4789-9929-78fc6b30b035", image: "Timeline.jpg" },
+        { title: "Kamaji", category: "Branding & Packaging", link: "#", image: "kamaji.jpg" }
       ]
     },
     vectorizacion: {
@@ -297,16 +239,35 @@
         { title: "Afrodyta", category: "Website", link: "https://afrodytatarot.github.io/", image: "vspgafro.jpeg" },
         { title: "Landing Page MyCrafts", category: "Website - Landing Page", link: "https://abigayd0013.github.io/MyCrafts_LP/", image: "vslpmycrafts.jpeg" }
       ]
+    },
+    ui: {
+      nombre: "Diseño de interfaz (UI)",
+      page: "ui-design.html",
+      items: [
+        { title: "Agua Pura", category: "UI Design / App Design", link: "#", image: "aguapura.jpg" }
+      ]
+    },
+    editorial: {
+      nombre: "Diseño editorial",
+      page: "editorial.html",
+      items: [
+        { title: "Dango Time – Monster Hunter", category: "Editorial Design", link: "https://heyzine.com/flip-book/7ad8a6dbcf.html", image: "https://cdnm.heyzine.com/flip-book/cover/7ad8a6dbcf.jpg", isHeyzine: true }
+      ]
+    },
+    tresD: {
+      nombre: "Diseño 3D",
+      page: "diseno-3d.html",
+      items: [
+        { title: "Blender", category: "3D Design & Modeling", link: "#", image: "blender.jpg" }
+      ]
     }
   };
 
   const MAX_VISIBLES = 5;
-
   const worksContainer = document.getElementById('worksCategories');
 
   if (worksContainer) {
     worksContainer.innerHTML = '';
-
     Object.keys(worksData).forEach(key => {
       const cat = worksData[key];
       const total = cat.items.length;
@@ -315,7 +276,6 @@
 
       const section = document.createElement('div');
       section.className = 'work-category';
-
       section.innerHTML = `
         <div class="category-header">
           <h3>${cat.nombre}</h3>
@@ -323,14 +283,13 @@
         </div>
         <div class="category-grid" id="grid-${key}"></div>
       `;
-
       worksContainer.appendChild(section);
 
       const grid = section.querySelector(`#grid-${key}`);
 
       visibles.forEach(work => {
         const card = document.createElement('div');
-        card.className = 'work-card';
+        card.className = 'work-card' + (work.isHeyzine ? ' heyzine-card' : '');
         card.innerHTML = `
           <div class="work-img" style="background-image: url('${work.image}');"></div>
           <div class="work-info">
@@ -361,26 +320,15 @@
     });
   }
 
-  // FORMULARIO DE CONTACTO (EmailJS)
   const form = document.getElementById('contactSimplerForm');
   const sendBtn = document.getElementById('sendContactBtn');
 
   function showNotification(msg, isError = false) {
     const div = document.createElement('div');
     div.textContent = msg;
-    div.style.cssText = `
-      position: fixed; bottom: 20px; right: 20px;
-      background: ${isError ? '#F25C05' : '#F2059F'};
-      color: white; padding: 12px 20px; border-radius: 40px;
-      font-family: 'Inter', sans-serif; font-weight: 500;
-      z-index: 10000; animation: slideIn 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    `;
+    div.style.cssText = `position: fixed; bottom: 20px; right: 20px; background: ${isError ? '#F25C05' : '#F2059F'}; color: white; padding: 12px 20px; border-radius: 40px; font-family: 'Inter', sans-serif; font-weight: 500; z-index: 10000; animation: slideIn 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3);`;
     document.body.appendChild(div);
-    setTimeout(() => {
-      div.style.animation = 'slideOut 0.3s ease';
-      setTimeout(() => div.remove(), 300);
-    }, 4000);
+    setTimeout(() => { div.style.animation = 'slideOut 0.3s ease'; setTimeout(() => div.remove(), 300); }, 4000);
   }
 
   if (form) {
@@ -390,21 +338,13 @@
       const phone = document.getElementById('contactPhone').value.trim();
       const email = document.getElementById('contactEmail').value.trim();
       const project = document.getElementById('contactMsg').value.trim();
-
-      if (!name || !phone || !email || !project) {
-        showNotification('❌ Por favor completa todos los campos.', true);
-        return;
-      }
-
+      if (!name || !phone || !email || !project) { showNotification('❌ Por favor completa todos los campos.', true); return; }
       const now = new Date();
       const timeStr = now.toLocaleString('es-MX', { dateStyle: 'short', timeStyle: 'short' });
-
       const templateParams = { name, phone, email, project, time: timeStr };
-
       const originalText = sendBtn.innerHTML;
       sendBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Enviando...';
       sendBtn.disabled = true;
-
       try {
         await emailjs.send('service_8e7c5ll', 'template_ez1utgs', templateParams);
         showNotification('✨ ¡Mensaje enviado! Te responderé pronto.');
@@ -420,10 +360,7 @@
   }
 
   const styleSheet = document.createElement('style');
-  styleSheet.textContent = `
-    @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-    @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
-  `;
+  styleSheet.textContent = `@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } } @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }`;
   document.head.appendChild(styleSheet);
 </script>
 </body>
