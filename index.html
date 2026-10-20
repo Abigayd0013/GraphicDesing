@@ -7,13 +7,11 @@
 <meta name="description" content="Portafolio de Abigayd Espinosa, diseñadora gráfica mexicana.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
-<!-- Preconectar a Google Fonts y FontAwesome para que carguen más rápido -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-  /* Variables de color (Tema oscuro fijo) */
   :root {
     --bg: #0A0807;
     --surface: rgba(20, 18, 17, 0.7);
@@ -28,7 +26,6 @@
     --accent-5: #F25C05;
     --shadow: rgba(242, 5, 92, 0.4);
   }
-
   *{box-sizing:border-box;margin:0;padding:0}
   html { scroll-behavior: smooth; }
   body{
@@ -38,37 +35,25 @@
       radial-gradient(circle at 85% 85%, rgba(242, 203, 5, 0.07) 0%, transparent 45%),
       radial-gradient(circle at 50% 50%, rgba(242, 92, 5, 0.05) 0%, transparent 60%);
     color: var(--fg);
-    font-family:'Inter','Helvetica Neue',sans-serif;
+    font-family:'Inter',sans-serif;
     line-height:1.4;
     overflow-x:hidden;
     opacity: 0;
-    animation: pageFadeIn 0.8s ease forwards; /* Animación más rápida */
+    animation: pageFadeIn 0.8s ease forwards;
   }
-  @keyframes pageFadeIn {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
+  @keyframes pageFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
   .cursive-marker { font-family: 'Syne', cursive; font-weight: 600; letter-spacing: -0.02em; }
 
   .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s ease forwards; }
   .fade-up.delay-1 { animation-delay: 0.2s; }
   .fade-up.delay-2 { animation-delay: 0.4s; }
   .fade-up.delay-3 { animation-delay: 0.6s; }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* HERO PLANETA */
   .hero{
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     display:flex; align-items:center; justify-content:center;
-    overflow:hidden;
-    z-index: 50;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    overflow:hidden; z-index: 50; transition: opacity 0.4s ease, visibility 0.4s ease;
     background-color: var(--bg);
   }
   .hero.hero-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
@@ -94,7 +79,6 @@
   .scroll-down:hover .arrow-circle{ background:var(--accent-3); color:#0a0807; }
   @keyframes scrollBob{ 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
-  /* SECCIÓN INICIO */
   .app { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
   .nav-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border); }
   .logo-moderno a { text-decoration: none; }
@@ -138,7 +122,6 @@
 </head>
 <body>
 
-<!-- HERO PLANETA -->
 <section class="hero" id="heroPlanet">
   <canvas id="webgl"></canvas>
   <div class="vignette"></div>
@@ -159,7 +142,6 @@
   </button>
 </section>
 
-<!-- SECCIÓN INICIO -->
 <div class="app" id="seccion-inicio">
   <div class="nav-header fade-up delay-1">
     <div class="logo-moderno">
@@ -222,19 +204,20 @@
 <script type="module">
 import * as THREE from 'three';
 
-// === OPTIMIZACIÓN: Carga diferida (Lazy Load) ===
 const NUM_CARDS = 30;
 const RADIUS = 2.6;
 const CARD_W = 1.0;
 const CARD_H = 1.3;
 const TILT = -0.35;
-const IMAGE_NAME = (n) => `trabajo-${String(n).padStart(2, '0')}.jpg`;
+
+// Nombres estandarizados
+const IMAGE_NAME = (n) => `trabajo-${String(n).padStart(2, '0')}.jpeg`;
 
 const COLORS = { wire1: 0xF2055C, wire2: 0xF2CB05, core: 0xF2059F, halo: 0xF25C05, rings: [0xF2055C, 0xF2CB05, 0xF25C05] };
 
 const canvas = document.getElementById('webgl');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true }); // Antialias apagado para más velocidad
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)); // Limitar resolución a 1.5 para no forzar la gráfica
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
 renderer.setSize(innerWidth, innerHeight);
 
 const scene = new THREE.Scene();
@@ -246,10 +229,9 @@ const system = new THREE.Group();
 system.rotation.x = TILT;
 scene.add(system);
 
-// Texturas optimizadas
 function makeGlowTexture() {
   const cvs = document.createElement('canvas');
-  cvs.width = cvs.height = 128; // Reducido de 256 a 128
+  cvs.width = cvs.height = 128;
   const ctx = cvs.getContext('2d');
   const g = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
   g.addColorStop(0, 'rgba(242, 5, 92, 0.9)');
@@ -259,7 +241,6 @@ function makeGlowTexture() {
   const tex = new THREE.CanvasTexture(cvs); tex.colorSpace = THREE.SRGBColorSpace; return tex;
 }
 
-// Funciones del planeta (geometría básica)
 const wireSphere1 = new THREE.Mesh(new THREE.SphereGeometry(RADIUS, 24, 16), new THREE.MeshBasicMaterial({ color: COLORS.wire1, wireframe: true, transparent: true, opacity: 0.35 }));
 system.add(wireSphere1);
 const wireSphere2 = new THREE.Mesh(new THREE.SphereGeometry(RADIUS * 1.02, 8, 6), new THREE.MeshBasicMaterial({ color: COLORS.wire2, wireframe: true, transparent: true, opacity: 0.18 }));
@@ -272,11 +253,10 @@ system.add(halo);
 const glowSprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: makeGlowTexture(), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, opacity: 0.9 }));
 glowSprite.scale.set(RADIUS * 4.5, RADIUS * 4.5, 1); system.add(glowSprite);
 
-// Anillos
 for (let r = 1; r <= 2; r++) {
   const radius = RADIUS + r * 0.9;
   const pts = [];
-  for (let i = 0; i <= 64; i++) { // Reducido de 128 a 64 segmentos
+  for (let i = 0; i <= 64; i++) {
     const a = (i / 64) * Math.PI * 2;
     pts.push(new THREE.Vector3(Math.cos(a) * radius, 0, Math.sin(a) * radius));
   }
@@ -284,11 +264,25 @@ for (let r = 1; r <= 2; r++) {
   system.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts), mat));
 }
 
-// Tarjetas (Lazy Load)
-const loader = new THREE.TextureLoader();
-loader.crossOrigin = 'anonymous';
 const cards = [];
 const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+
+// FUNCIÓN DEFINITIVA PARA CARGAR IMÁGENES LOCALES SIN BLOQUEOS
+function loadImageAsTexture(url, onLoad) {
+  const img = new Image();
+  img.src = url;
+  img.onload = () => {
+    const tex = new THREE.Texture(img);
+    tex.needsUpdate = true;
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.minFilter = THREE.LinearFilter;
+    tex.generateMipmaps = false;
+    onLoad(tex);
+  };
+  img.onerror = () => {
+    console.warn("No se pudo cargar: " + url);
+  };
+}
 
 for (let i = 0; i < NUM_CARDS; i++) {
   const num = i + 1;
@@ -299,7 +293,9 @@ for (let i = 0; i < NUM_CARDS; i++) {
   const pos = new THREE.Vector3(Math.cos(theta) * r, y, Math.sin(theta) * r).multiplyScalar(ringRadius);
 
   const geo = new THREE.PlaneGeometry(CARD_W, CARD_H);
-  const mat = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, transparent: true, opacity: 0.98, color: 0x333333 });
+  
+  // Inicia invisible hasta que la foto cargue
+  const mat = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, transparent: true, opacity: 0 });
   
   const mesh = new THREE.Mesh(geo, mat);
   mesh.position.copy(pos);
@@ -307,23 +303,17 @@ for (let i = 0; i < NUM_CARDS; i++) {
 
   mesh.userData = { angle: theta, y, radius: ringRadius, speed: 0.12 + Math.random() * 0.15, phase: Math.random() * Math.PI * 2 };
 
-  // El truco: solo cargamos las primeras 5 imágenes de golpe. 
-  // Las demás se cargan con un retraso para no saturar la red.
-  setTimeout(() => {
-    loader.load(IMAGE_NAME(num), (tex) => {
-      tex.colorSpace = THREE.SRGBColorSpace;
-      tex.minFilter = THREE.LinearFilter;
-      mat.map = tex;
-      mat.color.set(0xffffff); // Color original
-      mat.needsUpdate = true;
-    });
-  }, i < 5 ? 0 : (i * 100)); // 0ms para las primeras 5, luego 100ms de diferencia entre cada una.
+  // Usamos la nueva función
+  loadImageAsTexture(IMAGE_NAME(num), (tex) => {
+    mat.map = tex;
+    mat.opacity = 0.98;
+    mat.needsUpdate = true;
+  });
 
   system.add(mesh);
   cards.push(mesh);
 }
 
-// Interacción y animación
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
@@ -362,7 +352,6 @@ animate();
 </script>
 
 <script>
-  // Scroll hero
   const hero = document.getElementById('heroPlanet');
   const scrollDownBtn = document.getElementById('scrollDownBtn');
   const seccionInicio = document.getElementById('seccion-inicio');
