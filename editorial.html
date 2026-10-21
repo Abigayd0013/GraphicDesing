@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Trabajos · Abigayd Espinosa</title>
-  <meta name="description" content="Portafolio de proyectos de Abigayd Espinosa: branding, vectorización, diseño web, editorial, 3D y UI.">
+  <title>Diseño editorial · Abigayd Espinosa</title>
+  <meta name="description" content="Proyectos de diseño editorial de Abigayd Espinosa.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -45,51 +45,21 @@
     .page-header { margin-bottom: 3.5rem; }
     .section-sub { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent-5); margin-bottom: 0.5rem; font-weight: 600; }
     h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; background: linear-gradient(135deg, var(--fg), var(--accent-3)); background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 0.5rem; line-height: 1; }
-    .work-category { margin-bottom: 4rem; }
-    .category-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.6rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border); }
-    .category-header-left { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
-    .category-header h3 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 800; background: linear-gradient(120deg, var(--accent-3), var(--accent-5)); background-clip: text; -webkit-background-clip: text; color: transparent; letter-spacing: -0.02em; }
-    .category-count { font-size: 0.75rem; color: var(--fg); background: var(--surface-2); padding: 0.3rem 0.9rem; border-radius: 40px; font-weight: 600; white-space: nowrap; border: 1px solid var(--surface-border); }
-    .category-see-all { color: var(--accent-3); text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: 0.25s; opacity: 0.9; }
-    .category-see-all:hover { opacity: 1; color: var(--accent); transform: translateX(4px); }
-    .category-see-all i { font-size: 0.75rem; }
-    .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-    .work-card { display: flex; flex-direction: column; border-radius: 28px; overflow: hidden; transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); background: var(--surface); border: 1px solid var(--surface-border); box-shadow: 0 4px 20px var(--shadow); }
-    .work-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -12px var(--shadow); border-color: var(--accent); }
-    .work-color-top { position: relative; aspect-ratio: 4 / 3; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; background: var(--card-color, linear-gradient(135deg, #F2055C, #F25C05)); }
-    .work-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
-    .work-card:hover .work-img { transform: scale(1.06); }
-    .work-card.heyzine-card .work-img { background-size: contain; background-repeat: no-repeat; background-position: center; background-color: var(--surface-2); }
-    .work-panel { background: var(--surface); padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; flex-grow: 1; }
-    .work-title { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; color: var(--fg); }
-    .work-desc { font-size: 0.82rem; line-height: 1.45; color: var(--fg-muted); flex-grow: 1; }
-    .work-bottom { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-top: 0.4rem; }
-    .work-tools { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-    .tool-badge { display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; padding: 0.35rem 0.55rem; border-radius: 6px; letter-spacing: 0.5px; color: #fff; background: #1a1614; border: 1px solid rgba(255,255,255,0.08); min-width: 26px; }
-    .tool-badge.ps  { background: #001e36; color: #31a8ff; border-color: rgba(49, 168, 255, 0.4); }
-    .tool-badge.ai  { background: #330000; color: #ff9a00; border-color: rgba(255, 154, 0, 0.4); }
-    .tool-badge.ae  { background: #00005b; color: #9999ff; border-color: rgba(153, 153, 255, 0.4); }
-    .tool-badge.pr  { background: #00005b; color: #ea77ff; border-color: rgba(234, 119, 255, 0.4); }
-    .tool-badge.id  { background: #49021f; color: #ff3366; border-color: rgba(255, 51, 102, 0.4); }
-    .tool-badge.xd  { background: #2e001f; color: #ff61f6; border-color: rgba(255, 97, 246, 0.4); }
-    .tool-badge.bl  { background: #1a1000; color: #ff9a00; border-color: rgba(255, 154, 0, 0.4); }
-    .tool-badge.web { background: #0a1a10; color: #4ade80; border-color: rgba(74, 222, 128, 0.4); }
-    .work-link-arrow { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--surface-2); border: 1.5px solid var(--accent-3); display: inline-flex; align-items: center; justify-content: center; color: var(--accent-3); font-size: 1rem; text-decoration: none; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
-    .work-link-arrow:hover { background: var(--accent-3); color: #0a0807; border-color: var(--accent-3); }
-    .work-card-plus { display: flex; flex-direction: column; border-radius: 28px; overflow: hidden; text-decoration: none; color: inherit; background: var(--surface); border: 2px dashed var(--surface-border); transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); cursor: pointer; min-height: 100%; }
-    .work-card-plus:hover { transform: translateY(-8px); border-color: var(--accent-3); box-shadow: 0 20px 40px -12px var(--shadow); }
-    .work-card-plus .plus-top { aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--surface-2), var(--surface)); }
-    .work-card-plus .plus-top .plus-icon { font-size: 6rem; font-weight: 200; background: linear-gradient(120deg, var(--accent-3), var(--accent-5)); background-clip: text; -webkit-background-clip: text; color: transparent; line-height: 1; }
-    .work-card-plus .plus-panel { background: var(--surface); padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .work-card-plus .plus-text { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.5px; color: var(--fg); }
-    .work-card-plus .plus-sub { font-size: 0.82rem; color: var(--fg-muted); line-height: 1.4; }
+    
+    /* Estilos especiales para el visor de HeyZine */
+    .editorial-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+    .editorial-item { background: var(--surface); border-radius: 32px; padding: 1.5rem; border: 1px solid var(--surface-border); box-shadow: 0 4px 20px var(--shadow); }
+    .editorial-title { font-size: 1.5rem; font-weight: 800; color: var(--fg); margin-bottom: 0.5rem; }
+    .editorial-desc { font-size: 0.9rem; color: var(--fg-muted); margin-bottom: 1.5rem; }
+    .flipbook-wrapper iframe { width: 100%; height: 600px; border-radius: 20px; border: 1px solid var(--surface-border); }
+    
     footer { margin-top: 4rem; text-align: center; opacity: 0.75; font-size: 0.75rem; border-top: 1px dashed var(--surface-border); padding: 2rem; color: var(--fg-muted); }
     footer p { margin: 0.3rem 0; }
-    @media (max-width: 880px) {
-      .app { padding: 1rem; }
-      .tabs { flex-wrap: wrap; }
-      .tab-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
-      .category-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+    @media (max-width: 880px) { 
+      .app { padding: 1rem; } 
+      .tabs { flex-wrap: wrap; } 
+      .tab-btn { padding: 0.5rem 1rem; font-size: 0.8rem; } 
+      .flipbook-wrapper iframe { height: 400px; }
     }
   </style>
 </head>
@@ -108,11 +78,11 @@
   </div>
 
   <div class="page-header fade-up delay-1">
-    <div class="section-sub">Portafolio reciente</div>
-    <h2>Proyectos <span style="color: var(--accent-4);">/*</span> experimentales</h2>
+    <div class="section-sub">Categoría completa</div>
+    <h2>Diseño editorial</h2>
   </div>
 
-  <div id="worksCategories" class="fade-up delay-2"></div>
+  <div class="editorial-grid fade-up delay-2" id="fullGrid"></div>
 
   <footer>
     <p>© 2026 Abigayd Espinosa · Diseñadora Gráfica</p>
@@ -121,123 +91,37 @@
 </div>
 
 <script>
-  const worksData = {
-    branding: {
-      nombre: "Branding / Identidad visual",
-      page: "branding.html",
-      items: [
-        { title: "CAUDILLOS COFFEE", category: "Rebranding & manual", desc: "Rebranding completo con manual de identidad visual y aplicaciones de marca.", link: "https://acrobat.adobe.com/id/urn:aaid:sc:us:068bc216-f8ee-4b7b-9143-265f6d749a18", image: "CAUDILLOS.jpg", tools: ["ai", "ps", "id"], color: "linear-gradient(135deg, #F2055C, #F25C05)" },
-        { title: "Tamline", category: "Branding MetroBus", desc: "Identidad visual para sistema de transporte urbano, con señalética y papelería.", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:e8a42ea9-0dd2-4789-9929-78fc6b30b035", image: "Timeline.jpg", tools: ["ai", "ps"], color: "linear-gradient(135deg, #F2CB05, #F2055C)" },
-        { title: "Kamaji", category: "Branding & Packaging", desc: "Diseño de marca y empaque para producto artesanal, con enfoque en ilustración.", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:da0603f4-d3e4-4c2c-9407-18f40a8e846d", image: "kamaji.jpg", tools: ["ai", "ps"], color: "linear-gradient(135deg, #F25C05, #F2CB05)" }
-      ]
+  const items = [
+    {
+      title: "Dango Time — Monster Hunter",
+      category: "Editorial Design",
+      desc: "Revista digital con maquetación editorial temática, disponible como flip-book interactivo.",
+      flipbook: "https://heyzine.com/flip-book/7ad8a6dbcf.html"
     },
-    vectorizacion: {
-      nombre: "Vectorización",
-      page: "vectorizacion.html",
-      items: [
-        { title: "i23", category: "Vectorizado", desc: "Ilustración vectorial con detalles limpios y paleta de color controlada.", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:19b372f6-a194-49da-a8ad-9df614cd7a17", image: "i23.jpg", tools: ["ai"], color: "linear-gradient(135deg, #F2059F, #F2CB05)" }
-      ]
-    },
-    disenoWeb: {
-      nombre: "Diseño web",
-      page: "diseno-web.html",
-      items: [
-        { title: "MyCrafts", category: "Website", desc: "Sitio web completo para marca de manualidades, con diseño responsivo y catálogo.", link: "https://abigayd0013.github.io/MyCrafts/", image: "vspgmycrafts.jpeg", tools: ["web"], color: "linear-gradient(135deg, #F2CB05, #F25C05)" },
-        { title: "Afrodyta", category: "Website", desc: "Sitio web para servicios de tarot y esoterismo, con estética mística y moderna.", link: "https://afrodytatarot.github.io/", image: "vspgafro.jpeg", tools: ["web"], color: "linear-gradient(135deg, #F2059F, #F2055C)" },
-        { title: "Landing Page MyCrafts", category: "Website — Landing", desc: "Landing page promocional enfocada en conversión y presentación de producto.", link: "https://abigayd0013.github.io/MyCrafts_LP/", image: "vslpmycrafts.jpeg", tools: ["web"], color: "linear-gradient(135deg, #F25C05, #F2CB05)" }
-      ]
-    },
-    ui: {
-      nombre: "Diseño de interfaz (UI)",
-      page: "ui-design.html",
-      items: [
-        { title: "Agua Pura", category: "UI Design / App Design", desc: "Diseño de interfaz para aplicación móvil de hidratación, con sistema de componentes.", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:da0603f4-d3e4-4c2c-9407-18f40a8e846d", image: "aguapura.jpg", tools: ["xd", "ps", "ai"], color: "linear-gradient(135deg, #F2CB05, #F2059F)" }
-      ]
-    },
-    editorial: {
-      nombre: "Diseño editorial",
-      page: "editorial.html",
-      items: [
-        { title: "Dango Time — Monster Hunter", category: "Editorial Design", desc: "Revista digital con maquetación editorial temática, disponible como flip-book interactivo.", link: "https://heyzine.com/flip-book/7ad8a6dbcf.html", image: "https://cdnm.heyzine.com/flip-book/cover/7ad8a6dbcf.jpg", tools: ["id", "ps"], color: "linear-gradient(135deg, #F2CB05, #F2055C)", isHeyzine: true },
-        { title: "Tierra Verde", category: "Editorial Design", desc: "Proyecto editorial enfocado en la naturaleza y sostenibilidad, disponible como flip-book interactivo.", link: "https://heyzine.com/flip-book/ba71b95227.html", image: "https://cdnm.heyzine.com/flip-book/cover/ba71b95227.jpg", tools: ["id", "ps"], color: "linear-gradient(135deg, #00804C, #74C365)", isHeyzine: true }
-      ]
-    },
-    tresD: {
-      nombre: "Diseño 3D",
-      page: "diseno-3d.html",
-      items: [
-        { title: "Blender", category: "3D Design & Modeling", desc: "Modelado 3D con materiales, iluminación y render final para presentación de producto.", link: "https://acrobat.adobe.com/id/urn:aaid:sc:US:e6c7f32c-83f5-4f0c-bd2b-621ea95be439", image: "blender.jpg", tools: ["bl"], color: "linear-gradient(135deg, #F25C05, #F2CB05)" }
-      ]
+    {
+      title: "Tierra Verde",
+      category: "Editorial Design",
+      desc: "Proyecto editorial enfocado en la naturaleza y sostenibilidad, disponible como flip-book interactivo.",
+      flipbook: "https://heyzine.com/flip-book/ba71b95227.html"
     }
-  };
+  ];
 
-  const MAX_VISIBLES = 5;
-  const worksContainer = document.getElementById('worksCategories');
+  const grid = document.getElementById('fullGrid');
 
-  if (worksContainer) {
-    worksContainer.innerHTML = '';
-    Object.keys(worksData).forEach(key => {
-      const cat = worksData[key];
-      const total = cat.items.length;
-      const visibles = cat.items.slice(0, MAX_VISIBLES);
-      const mostrarBotonPlus = total > MAX_VISIBLES;
-
-      const section = document.createElement('div');
-      section.className = 'work-category';
-      section.innerHTML = `
-        <div class="category-header">
-          <div class="category-header-left">
-            <h3>${cat.nombre}</h3>
-            <span class="category-count">${total} ${total === 1 ? 'proyecto' : 'proyectos'}</span>
-          </div>
-          <a href="${cat.page}" class="category-see-all">Ver todos <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="category-grid" id="grid-${key}"></div>
-      `;
-      worksContainer.appendChild(section);
-
-      const grid = section.querySelector(`#grid-${key}`);
-
-      visibles.forEach(work => {
-        const card = document.createElement('div');
-        card.className = 'work-card' + (work.isHeyzine ? ' heyzine-card' : '');
-        const labels = { ps: "Ps", ai: "Ai", ae: "Ae", pr: "Pr", id: "Id", xd: "Xd", bl: "Bl", web: "Web" };
-        const toolsHTML = (work.tools || []).map(tool => `<span class="tool-badge ${tool}">${labels[tool] || tool}</span>`).join('');
-        const arrowLink = work.link && work.link !== '#'
-          ? `<a href="${work.link}" target="_blank" class="work-link-arrow" aria-label="Ver proyecto completo"><i class="fas fa-arrow-up-right-from-square"></i></a>`
-          : `<span class="work-link-arrow" style="opacity:0.4; cursor:default;"><i class="fas fa-arrow-up-right-from-square"></i></span>`;
-
-        card.innerHTML = `
-          <div class="work-color-top" style="--card-color: ${work.color || 'linear-gradient(135deg, #F2055C, #F25C05)'};">
-            <div class="work-img" style="background-image: url('${work.image}');"></div>
-          </div>
-          <div class="work-panel">
-            <div class="work-title">${work.title}</div>
-            <div class="work-desc">${work.desc || work.category}</div>
-            <div class="work-bottom">
-              <div class="work-tools">${toolsHTML}</div>
-              ${arrowLink}
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-
-      if (mostrarBotonPlus) {
-        const plusCard = document.createElement('a');
-        plusCard.href = cat.page;
-        plusCard.className = 'work-card-plus';
-        plusCard.innerHTML = `
-          <div class="plus-top"><span class="plus-icon">+</span></div>
-          <div class="plus-panel">
-            <div class="plus-text">VER MÁS</div>
-            <div class="plus-sub">${total - MAX_VISIBLES} proyecto${(total - MAX_VISIBLES) === 1 ? '' : 's'} más en esta categoría</div>
-          </div>
-        `;
-        grid.appendChild(plusCard);
-      }
-    });
-  }
+  items.forEach(work => {
+    const div = document.createElement('div');
+    div.className = 'editorial-item';
+    div.innerHTML = `
+      <div class="section-sub" style="font-size: 0.75rem; letter-spacing: 2px;">${work.category}</div>
+      <div class="editorial-title">${work.title}</div>
+      <div class="editorial-desc">${work.desc}</div>
+      <div class="flipbook-wrapper">
+        <iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" scrolling="no" src="${work.flipbook}"></iframe>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
 </script>
 </body>
+</html>
 </html>
